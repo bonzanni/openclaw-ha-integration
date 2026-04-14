@@ -1,0 +1,49 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to OpenClaw",
+        "description": "Enter the connection details for your OpenClaw gateway.",
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "token": "Gateway Token"
+        }
+      },
+      "hassio_confirm": {
+        "title": "OpenClaw Discovered",
+        "description": "The OpenClaw add-on **{name}** was found. Do you want to set it up?"
+      },
+      "reauth_confirm": {
+        "title": "Re-authenticate OpenClaw",
+        "description": "The gateway token has changed. Enter the new token.",
+        "data": {
+          "token": "Gateway Token"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Cannot connect to OpenClaw gateway",
+      "invalid_auth": "Invalid gateway token",
+      "unknown": "Unexpected error"
+    },
+    "abort": {
+      "already_configured": "OpenClaw is already configured",
+      "reauth_successful": "Re-authentication successful"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "data": {
+          "agent_id": "Agent",
+          "session_mode": "Session persistence"
+        },
+        "data_description": {
+          "agent_id": "The OpenClaw agent to use for conversations (e.g. 'default', 'butler')",
+          "session_mode": "How conversation context persists: per device, per user, or per session"
+        }
+      }
+    }
+  }
+}
