@@ -72,6 +72,7 @@ class OpenClawApiClient:
             "Content-Type": "application/json",
             "x-openclaw-agent-id": agent_id,
             "x-openclaw-message-channel": channel,
+            "x-openclaw-source": channel,
         }
         if session_key:
             headers["x-openclaw-session-key"] = session_key

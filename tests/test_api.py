@@ -155,6 +155,7 @@ class TestChatCompletionStream:
         assert headers["x-openclaw-session-key"] == "ha:voice:butler:kitchen-01"
         assert headers["x-openclaw-agent-id"] == "butler"
         assert headers["x-openclaw-message-channel"] == "voice"
+        assert headers["x-openclaw-source"] == "voice"
 
     @pytest.mark.asyncio
     async def test_skips_empty_content(self, client: OpenClawApiClient, mock_session: MagicMock) -> None:
