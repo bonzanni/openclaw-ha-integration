@@ -20,7 +20,7 @@ _LOGGER = logging.getLogger(__name__)
 
 PLATFORMS = [Platform.CONVERSATION]
 
-type OpenClawConfigEntry = ConfigEntry[OpenClawApiClient]
+OpenClawConfigEntry = ConfigEntry  # type: ignore[type-arg]
 
 
 async def async_setup_entry(
