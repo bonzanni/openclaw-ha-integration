@@ -1,0 +1,15 @@
+{
+  "domain": "openclaw",
+  "name": "OpenClaw",
+  "codeowners": ["@bonzanni"],
+  "config_flow": true,
+  "dependencies": ["conversation"],
+  "after_dependencies": ["assist_pipeline", "intent", "hassio"],
+  "documentation": "https://github.com/bonzanni/openclaw-ha-integration",
+  "iot_class": "local_polling",
+  "requirements": [],
+  "version": "1.0.0",
+  "integration_type": "service",
+  "quality_scale": "custom",
+  "loggers": ["custom_components.openclaw"]
+}
