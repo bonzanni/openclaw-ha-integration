@@ -72,7 +72,7 @@ class OpenClawConversationEntity(conversation.ConversationEntity):
             identifiers={(DOMAIN, self.entry.entry_id)},
             name="OpenClaw",
             manufacturer="OpenClaw",
-            model="Gateway",
+            model=f"Conversation Agent ({self.entry.options.get(CONF_AGENT_ID, DEFAULT_AGENT_ID)})",
             sw_version=INTEGRATION_VERSION,
             entry_type=dr.DeviceEntryType.SERVICE,
         )

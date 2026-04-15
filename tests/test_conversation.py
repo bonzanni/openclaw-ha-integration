@@ -182,5 +182,5 @@ class TestEntityProperties:
         info = entity.device_info
         assert (DOMAIN, "test-entry-123") in info["identifiers"]
         assert info["manufacturer"] == "OpenClaw"
-        assert info["model"] == "Gateway"
+        assert info["model"] == "Conversation Agent (main)"
         assert "sw_version" in info
