@@ -12,7 +12,7 @@ import aiohttp
 from homeassistant.components import conversation
 from homeassistant.components.conversation import ChatLog
 from homeassistant.const import MATCH_ALL
-from homeassistant.helpers import device_registry as dr, intent
+from homeassistant.helpers import intent
 
 from .api import AuthenticationError, OpenClawApiClient
 from .const import (
@@ -50,7 +50,7 @@ class OpenClawConversationEntity(conversation.ConversationEntity):
     """OpenClaw agent as HA conversation entity."""
 
     _attr_has_entity_name = True
-    _attr_name = None
+    _attr_name = "OpenClaw"
 
     def __init__(self, entry: OpenClawConfigEntry) -> None:
         """Initialize the conversation entity."""
@@ -63,17 +63,6 @@ class OpenClawConversationEntity(conversation.ConversationEntity):
     def supported_languages(self) -> list[str] | Literal["*"]:
         """Return supported languages — OpenClaw agents handle any language."""
         return MATCH_ALL
-
-    @property
-    def device_info(self) -> dr.DeviceInfo:
-        """Return device info for this agent."""
-        return dr.DeviceInfo(
-            identifiers={(DOMAIN, self.entry.entry_id)},
-            name="OpenClaw",
-            manufacturer="OpenClaw",
-            model=self._agent_id,
-            entry_type=dr.DeviceEntryType.SERVICE,
-        )
 
     async def _async_handle_message(
         self,

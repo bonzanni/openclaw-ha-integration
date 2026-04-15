@@ -173,8 +173,6 @@ class TestEntityProperties:
         entity = _make_entity()
         assert entity.supported_languages == "*"
 
-    def test_device_info(self) -> None:
-        entity = _make_entity(agent_id="butler")
-        info = entity.device_info
-        assert (DOMAIN, "test-entry-123") in info["identifiers"]
-        assert info["manufacturer"] == "OpenClaw"
+    def test_name(self) -> None:
+        entity = _make_entity()
+        assert entity._attr_name == "OpenClaw"
