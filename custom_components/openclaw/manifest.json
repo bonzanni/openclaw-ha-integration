@@ -8,7 +8,7 @@
   "documentation": "https://github.com/bonzanni/openclaw-ha-integration",
   "iot_class": "local_polling",
   "requirements": [],
-  "version": "1.0.6",
+  "version": "1.0.7",
   "integration_type": "service",
   "quality_scale": "custom",
   "loggers": ["custom_components.openclaw"]

@@ -42,8 +42,16 @@ async def async_setup_entry(
         raise ConfigEntryAuthFailed("Invalid gateway token") from err
 
     entry.runtime_data = client
+    entry.async_on_unload(entry.add_update_listener(_async_options_updated))
     await hass.config_entries.async_forward_entry_setups(entry, PLATFORMS)
     return True
+
+
+async def _async_options_updated(
+    hass: HomeAssistant, entry: OpenClawConfigEntry
+) -> None:
+    """Reload integration when options change."""
+    await hass.config_entries.async_reload(entry.entry_id)
 
 
 async def async_unload_entry(
