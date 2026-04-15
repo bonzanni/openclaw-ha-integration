@@ -2,7 +2,14 @@
 
 from __future__ import annotations
 
+import json
+from pathlib import Path
+
 DOMAIN = "openclaw"
+
+INTEGRATION_VERSION = json.loads(
+    (Path(__file__).parent / "manifest.json").read_text()
+)["version"]
 
 # Config entry data keys
 CONF_HOST = "host"

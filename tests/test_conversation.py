@@ -176,3 +176,11 @@ class TestEntityProperties:
     def test_name(self) -> None:
         entity = _make_entity()
         assert entity._attr_name == "OpenClaw"
+
+    def test_device_info(self) -> None:
+        entity = _make_entity()
+        info = entity.device_info
+        assert (DOMAIN, "test-entry-123") in info["identifiers"]
+        assert info["manufacturer"] == "OpenClaw"
+        assert info["model"] == "Gateway"
+        assert "sw_version" in info
