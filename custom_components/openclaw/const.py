@@ -20,7 +20,7 @@ SESSION_MODE_CONVERSATION = "conversation"
 
 # Defaults
 DEFAULT_PORT = 18789
-DEFAULT_AGENT_ID = "default"
+DEFAULT_AGENT_ID = "main"
 DEFAULT_SESSION_MODE = SESSION_MODE_DEVICE
 
 # Timeouts (seconds)

@@ -40,7 +40,7 @@
           "session_mode": "Session persistence"
         },
         "data_description": {
-          "agent_id": "The OpenClaw agent to use for conversations (e.g. 'default', 'butler')",
+          "agent_id": "The OpenClaw agent to use for conversations (e.g. 'main', 'butler')",
           "session_mode": "How conversation context persists: per device, per user, or per session"
         }
       }
