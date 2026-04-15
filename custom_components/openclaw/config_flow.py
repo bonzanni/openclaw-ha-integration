@@ -157,6 +157,7 @@ class OpenClawConfigFlow(ConfigFlow, domain=DOMAIN):
 
         return self.async_show_form(
             step_id="hassio_confirm",
+            description_placeholders={"name": self._discovery_name},
             errors=errors,
         )
 
