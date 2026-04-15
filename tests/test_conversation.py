@@ -176,6 +176,7 @@ class TestEntityProperties:
     def test_name(self) -> None:
         entity = _make_entity()
         assert entity._attr_name == "OpenClaw"
+        assert entity._attr_has_entity_name is False
 
     def test_device_info(self) -> None:
         entity = _make_entity()

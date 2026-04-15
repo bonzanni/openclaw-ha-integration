@@ -50,7 +50,7 @@ async def async_setup_entry(
 class OpenClawConversationEntity(conversation.ConversationEntity):
     """OpenClaw agent as HA conversation entity."""
 
-    _attr_has_entity_name = True
+    _attr_has_entity_name = False
     _attr_name = "OpenClaw"
 
     def __init__(self, entry: OpenClawConfigEntry) -> None:
