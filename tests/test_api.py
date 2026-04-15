@@ -134,7 +134,7 @@ class TestChatCompletionStream:
                 pass
 
     @pytest.mark.asyncio
-    async def test_sends_session_key_header(self, client: OpenClawApiClient, mock_session: MagicMock) -> None:
+    async def test_sends_routing_headers_and_user(self, client: OpenClawApiClient, mock_session: MagicMock) -> None:
         sse_lines = [b"data: [DONE]\n", b"\n"]
         mock_resp = AsyncMock()
         mock_resp.status = 200
@@ -152,10 +152,14 @@ class TestChatCompletionStream:
 
         call_kwargs = mock_session.post.call_args
         headers = call_kwargs.kwargs.get("headers") or call_kwargs[1].get("headers", {})
-        assert headers["x-openclaw-session-key"] == "ha:voice:butler:kitchen-01"
         assert headers["x-openclaw-agent-id"] == "butler"
         assert headers["x-openclaw-message-channel"] == "voice"
         assert headers["x-openclaw-source"] == "voice"
+        assert "x-openclaw-session-key" not in headers
+
+        body = call_kwargs.kwargs.get("json") or call_kwargs[1].get("json", {})
+        assert body["user"] == "ha:voice:butler:kitchen-01"
+        assert body["model"] == "openclaw/butler"
 
     @pytest.mark.asyncio
     async def test_skips_empty_content(self, client: OpenClawApiClient, mock_session: MagicMock) -> None:

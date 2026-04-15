@@ -74,14 +74,14 @@ class OpenClawApiClient:
             "x-openclaw-message-channel": channel,
             "x-openclaw-source": channel,
         }
-        if session_key:
-            headers["x-openclaw-session-key"] = session_key
 
-        payload = {
+        payload: dict[str, Any] = {
             "model": f"openclaw/{agent_id}",
             "messages": messages,
             "stream": True,
         }
+        if session_key:
+            payload["user"] = session_key
 
         resp = await self._session.post(
             f"{self._base_url}/v1/chat/completions",
