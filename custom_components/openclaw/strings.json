@@ -12,7 +12,7 @@
       },
       "hassio_confirm": {
         "title": "OpenClaw Discovered",
-        "description": "The OpenClaw add-on **{name}** was found. Do you want to set it up?"
+        "description": "The **{name}** add-on was found. Do you want to set it up?"
       },
       "reauth_confirm": {
         "title": "Re-authenticate OpenClaw",
